@@ -1,4 +1,5 @@
 from pathlib import Path
+from math import isclose
 
 from parrotcore.cli import default_profile_path, default_profiles_dir, make_brain
 from parrotcore.embodiment import CreatureRegistry
@@ -21,7 +22,7 @@ def test_default_resources_include_hardware_baseline():
         hardware / "v1_component_baseline.toml",
         hardware / "v1_actuator_map.toml",
     )
-    assert baseline.mapped_servo_all_stall_current_a == 13.6
+    assert isclose(baseline.mapped_servo_all_stall_current_a, 13.6, rel_tol=0, abs_tol=1e-12)
 
 
 def test_packaged_resources_match_research_source():

@@ -26,6 +26,7 @@ def test_installed_wheel_is_self_contained(tmp_path):
     check = r'''
 import contextlib
 import io
+from math import isclose
 from pathlib import Path
 import sys
 import parrotcore
@@ -40,7 +41,7 @@ for profile in CreatureRegistry.from_directory(profiles).all():
     assert ExpressionCompiler(profile).compile("greeting").frames
 hardware = profiles.parent / "hardware"
 baseline = load_hardware_baseline(hardware / "v1_component_baseline.toml", hardware / "v1_actuator_map.toml")
-assert baseline.mapped_servo_all_stall_current_a == 13.6
+assert isclose(baseline.mapped_servo_all_stall_current_a, 13.6, rel_tol=0, abs_tol=1e-12)
 assert make_brain().profile.species == "parrot"
 output = io.StringIO()
 with contextlib.redirect_stdout(output):
