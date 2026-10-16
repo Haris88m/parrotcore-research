@@ -1,0 +1,22 @@
+{
+  "classification": "conceptual dynamics/telemetry simulation; not measured hardware performance",
+  "platform_version": "0.5.0",
+  "species": "parrot",
+  "frames": 265,
+  "fps": 20,
+  "duration_s": 13.25,
+  "max_rail_current_a": 1.6400000000000001,
+  "max_system_power_w": 19.84,
+  "max_servo_temp_c": 27.9944004012,
+  "minimum_stability_margin_m": 0.019511811991420398,
+  "fault_frame_counts": {
+    "servo_stall": 16,
+    "proximity": 29,
+    "watchdog_loss": 11
+  },
+  "faults_intentionally_injected": [
+    "servo_stall:neck_yaw",
+    "proximity",
+    "watchdog_loss"
+  ]
+}

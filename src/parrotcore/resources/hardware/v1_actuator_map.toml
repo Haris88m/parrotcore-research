@@ -1,0 +1,24 @@
+[map]
+neck_yaw = "sts3215"
+neck_pitch = "sts3215"
+beak = "st3036"
+wing_left = "sts3215"
+wing_right = "sts3215"
+tail_pitch = "st3036"
+eyelids = "st3036"
+body_lean = "sts3215"
+
+[servo_ids]
+neck_yaw = 1
+neck_pitch = 2
+beak = 3
+wing_left = 4
+wing_right = 5
+tail_pitch = 6
+eyelids = 7
+body_lean = 8
+
+[calibration]
+status = "required before physical motion"
+raw_tick_range = 4096
+logical_to_raw_mapping = "not defined until per-joint zero, direction and linkage calibration"

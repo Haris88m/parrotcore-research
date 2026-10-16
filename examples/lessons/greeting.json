@@ -1,0 +1,13 @@
+{
+  "name": "friendly_greeting",
+  "rules": [
+    {
+      "event_kind": "phrase",
+      "contains": "good morning",
+      "actions": [
+        {"kind": "say", "payload": {"text": "Good morning. Ready to learn?"}},
+        {"kind": "motion", "payload": {"name": "happy_greeting"}}
+      ]
+    }
+  ]
+}

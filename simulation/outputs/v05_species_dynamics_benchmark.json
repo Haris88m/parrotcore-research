@@ -1,0 +1,84 @@
+{
+  "classification": "conceptual simulation benchmark; not measured hardware performance",
+  "platform_version": "0.5.0",
+  "creatures": {
+    "owl": {
+      "normal_behavior": {
+        "frames": 520,
+        "duration_s": 10.4,
+        "max_rail_current_a": 1.2318728299853805,
+        "max_system_power_w": 17.391236979912282,
+        "max_servo_temp_c": 27.997684528983054,
+        "min_stability_margin_m": 0.024125952272262042,
+        "fault_frame_counts": {}
+      },
+      "fault_probes": {
+        "watchdog_loss": [
+          "watchdog_loss"
+        ],
+        "proximity": [
+          "proximity"
+        ],
+        "overtemp": [
+          "overtemp"
+        ],
+        "all_servo_stall": [
+          "overcurrent",
+          "servo_stall"
+        ]
+      }
+    },
+    "parrot": {
+      "normal_behavior": {
+        "frames": 505,
+        "duration_s": 10.1,
+        "max_rail_current_a": 1.4124009371310506,
+        "max_system_power_w": 18.474405622786303,
+        "max_servo_temp_c": 27.997765143604102,
+        "min_stability_margin_m": 0.019511811991420398,
+        "fault_frame_counts": {}
+      },
+      "fault_probes": {
+        "watchdog_loss": [
+          "watchdog_loss"
+        ],
+        "proximity": [
+          "proximity"
+        ],
+        "overtemp": [
+          "overtemp"
+        ],
+        "all_servo_stall": [
+          "overcurrent",
+          "servo_stall"
+        ]
+      }
+    },
+    "raven": {
+      "normal_behavior": {
+        "frames": 472,
+        "duration_s": 9.44,
+        "max_rail_current_a": 1.4222628435900242,
+        "max_system_power_w": 20.533577061540143,
+        "max_servo_temp_c": 27.997764447779584,
+        "min_stability_margin_m": 0.014768440444951625,
+        "fault_frame_counts": {}
+      },
+      "fault_probes": {
+        "watchdog_loss": [
+          "watchdog_loss"
+        ],
+        "proximity": [
+          "proximity"
+        ],
+        "overtemp": [
+          "overtemp"
+        ],
+        "all_servo_stall": [
+          "overcurrent",
+          "servo_stall"
+        ]
+      }
+    }
+  }
+}

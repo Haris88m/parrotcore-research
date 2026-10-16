@@ -1,0 +1,23 @@
+{
+  "classification": "manufacturer-grounded electrical endpoints plus unvalidated dynamic/thermal/mechanical model; not measured hardware performance",
+  "platform_version": "0.5.1",
+  "hardware_baseline": "parrot_v1_2026-08-16",
+  "species": "parrot",
+  "frames": 265,
+  "fps": 20,
+  "duration_s": 13.25,
+  "max_rail_current_a": 2.99,
+  "max_system_power_w": 23.69,
+  "max_servo_temp_c": 27.9949995015,
+  "minimum_stability_margin_m": 0.019511811991420398,
+  "fault_frame_counts": {
+    "servo_stall": 16,
+    "proximity": 29,
+    "watchdog_loss": 11
+  },
+  "faults_intentionally_injected": [
+    "servo_stall:neck_yaw",
+    "proximity",
+    "watchdog_loss"
+  ]
+}

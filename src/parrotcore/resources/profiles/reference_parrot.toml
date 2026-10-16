@@ -1,0 +1,148 @@
+[body]
+name = "reference_parrot_8dof"
+protocol = "featherbus-v0"
+
+[creature]
+species = "parrot"
+morphology = "perching_bird"
+role = "talking_companion"
+capabilities = ["speech", "gaze", "blink", "beak_sync", "wing_gesture", "tail_gesture", "perch"]
+
+[simulation]
+# v0.5.1 physical electrical parameters live in hardware/v1_component_baseline.toml.
+# These remaining values are geometry/safety design targets, not measurements.
+model_mass_kg = 1.80
+target_height_m = 0.34
+watchdog_s = 0.75
+
+[hardware]
+baseline_id = "parrot_v1_2026-08-16"
+component_file = "hardware/v1_component_baseline.toml"
+actuator_map_file = "hardware/v1_actuator_map.toml"
+
+[joints.neck_yaw]
+actuator_model = "sts3215"
+minimum = -60.0
+maximum = 60.0
+home = 0.0
+max_speed = 180.0
+controller_id = 0
+
+[joints.neck_pitch]
+actuator_model = "sts3215"
+minimum = -35.0
+maximum = 40.0
+home = 0.0
+max_speed = 160.0
+controller_id = 1
+
+[joints.beak]
+actuator_model = "st3036"
+minimum = 0.0
+maximum = 35.0
+home = 0.0
+max_speed = 220.0
+controller_id = 2
+
+[joints.wing_left]
+actuator_model = "sts3215"
+minimum = 0.0
+maximum = 75.0
+home = 0.0
+max_speed = 140.0
+controller_id = 3
+
+[joints.wing_right]
+actuator_model = "sts3215"
+minimum = 0.0
+maximum = 75.0
+home = 0.0
+max_speed = 140.0
+controller_id = 4
+
+[joints.tail_pitch]
+actuator_model = "st3036"
+minimum = -20.0
+maximum = 35.0
+home = 0.0
+max_speed = 160.0
+controller_id = 5
+
+[joints.eyelids]
+actuator_model = "st3036"
+minimum = 0.0
+maximum = 100.0
+home = 0.0
+max_speed = 500.0
+controller_id = 6
+
+[joints.body_lean]
+actuator_model = "sts3215"
+minimum = -15.0
+maximum = 20.0
+home = 0.0
+max_speed = 110.0
+controller_id = 7
+
+[[expressions.greeting]]
+duration_s = 0.18
+positions = { neck_pitch = -8, wing_left = 18, wing_right = 18 }
+[[expressions.greeting]]
+duration_s = 0.20
+positions = { neck_yaw = -18, wing_left = 32, wing_right = 12 }
+[[expressions.greeting]]
+duration_s = 0.20
+positions = { neck_yaw = 18, wing_left = 12, wing_right = 32 }
+[[expressions.greeting]]
+duration_s = 0.22
+positions = { neck_yaw = 0, neck_pitch = 0, wing_left = 0, wing_right = 0 }
+
+[[expressions.blink]]
+duration_s = 0.08
+positions = { eyelids = 100 }
+[[expressions.blink]]
+duration_s = 0.12
+positions = { eyelids = 0 }
+
+[[expressions.attend_left]]
+duration_s = 0.30
+positions = { neck_yaw = -40 }
+[[expressions.attend_right]]
+duration_s = 0.30
+positions = { neck_yaw = 40 }
+[[expressions.center]]
+duration_s = 0.30
+positions = { neck_yaw = 0, neck_pitch = 0 }
+
+[[expressions.curious]]
+duration_s = 0.24
+positions = { neck_yaw = -18, neck_pitch = 14, wing_left = 8 }
+[[expressions.curious]]
+duration_s = 0.24
+positions = { neck_yaw = 10, neck_pitch = 9, wing_left = 0 }
+
+[[expressions.affirm]]
+duration_s = 0.16
+positions = { neck_pitch = 14 }
+[[expressions.affirm]]
+duration_s = 0.16
+positions = { neck_pitch = -4 }
+[[expressions.affirm]]
+duration_s = 0.16
+positions = { neck_pitch = 0 }
+
+[[expressions.dance]]
+duration_s = 0.20
+positions = { neck_yaw = -30, body_lean = -7, tail_pitch = 18 }
+[[expressions.dance]]
+duration_s = 0.20
+positions = { neck_yaw = 30, body_lean = 7, tail_pitch = -8 }
+[[expressions.dance]]
+duration_s = 0.20
+positions = { neck_yaw = -30, body_lean = -7, wing_left = 45 }
+[[expressions.dance]]
+duration_s = 0.20
+positions = { neck_yaw = 30, body_lean = 7, wing_right = 45 }
+[[expressions.dance]]
+duration_s = 0.25
+positions = { neck_yaw = 0, body_lean = 0, wing_left = 0, wing_right = 0, tail_pitch = 0 }

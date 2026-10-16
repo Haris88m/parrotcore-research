@@ -1,0 +1,209 @@
+[baseline]
+id = "parrot_v1_2026-08-16"
+version = "0.5.1"
+retrieved_date = "2026-08-16"
+reference_creature = "parrot"
+status = "datasheet-grounded component baseline; physical measurements pending"
+
+[modeling]
+nominal_dynamic_load_fraction = 0.18
+regulator_efficiency_assumption = 0.90
+usable_battery_fraction_assumption = 0.80
+servo_software_current_limit_a = 12.0
+thermal_model_status = "unvalidated engineering model"
+mechanical_load_status = "unvalidated until CAD/linkage/load measurements exist"
+
+[servos.sts3215]
+manufacturer = "Feetech"
+model = "ST-3215-C001 / STS3215"
+source_url = "https://www.feetechrc.com/74v-19-kgcm-plastic-case-metal-tooth-magnetic-code-double-axis-ttl-series-steering-gear.html"
+source_class = "manufacturer_spec"
+operating_voltage_min_v = 6.0
+operating_voltage_max_v = 7.4
+reference_voltage_v = 6.0
+no_load_speed_sec_per_60deg = 0.238
+no_load_current_a = 0.150
+stall_current_a = 2.0
+rated_torque_kg_cm = 6.5
+stall_torque_kg_cm = 19.5
+mass_g = 55.0
+length_mm = 45.2
+width_mm = 24.7
+height_mm = 35.0
+feedback = ["position", "speed", "voltage", "current", "temperature", "load"]
+protocol = "half-duplex asynchronous TTL serial"
+
+[servos.st3036]
+manufacturer = "Feetech"
+model = "ST-3036-C001"
+source_url = "https://www.feetechrc.com/691673.html"
+source_class = "manufacturer_spec"
+operating_voltage_min_v = 4.8
+operating_voltage_max_v = 7.4
+reference_voltage_v = 6.0
+no_load_speed_sec_per_60deg = 0.09
+no_load_current_a = 0.130
+stall_current_a = 1.2
+rated_torque_kg_cm = 1.5
+stall_torque_kg_cm = 4.5
+mass_g = 17.7
+length_mm = 32.0
+width_mm = 12.0
+height_mm = 27.5
+feedback = ["position", "speed", "voltage", "current", "temperature", "load"]
+protocol = "half-duplex asynchronous TTL serial"
+
+[compute.cm5]
+manufacturer = "Raspberry Pi"
+model = "Compute Module 5, wireless, 8GB RAM / 32GB eMMC target configuration"
+source_url = "https://pip.raspberrypi.com/documents/RP-008180-DS-cm5-datasheet.pdf"
+source_class = "manufacturer_spec"
+supply_voltage_v = 5.0
+idle_current_a_typical = 0.400
+operation_current_a_typical = 0.900
+operation_power_w_derived = 4.5
+power_note = "CM5 module only; peripherals excluded by manufacturer"
+
+[camera.camera3_wide]
+manufacturer = "Raspberry Pi"
+model = "Camera Module 3 Wide"
+source_url = "https://www.raspberrypi.com/products/camera-module-3/"
+source_class = "manufacturer_spec"
+resolution_x = 4608
+resolution_y = 2592
+diagonal_fov_deg = 120.0
+length_mm = 25.0
+width_mm = 24.0
+height_mm = 12.4
+power_budget_w = 1.25
+power_budget_class = "engineering_budget_from Raspberry Pi camera guidance; not Camera Module 3 measured draw"
+
+[battery.main]
+manufacturer = "Gens ace"
+model = "G-Tech 2200mAh 3S 11.1V 25C LiPo"
+source_url = "https://genstattu.com/gens-ace-2200mah-3s-11-1v-25c-g-tech-lipo-battery-pack-with-ec3-deans-and-xt60-adapter-for-rc-plane/"
+source_class = "manufacturer_spec"
+capacity_ah = 2.2
+nominal_voltage_v = 11.1
+cells_series = 3
+continuous_c = 25.0
+burst_c = 50.0
+mass_g = 169.0
+length_mm = 107.0
+width_mm = 33.0
+height_mm = 22.0
+energy_wh_derived = 24.42
+continuous_current_a_derived = 55.0
+
+[regulators.compute]
+manufacturer = "Pololu"
+model = "D24V90F5"
+source_url = "https://www.pololu.com/product/2866/specs"
+source_class = "manufacturer_spec"
+output_voltage_v = 5.0
+continuous_output_current_a = 9.0
+max_input_voltage_v = 38.0
+mass_g = 4.8
+efficiency_range_min = 0.80
+efficiency_range_max = 0.95
+thermal_derating_required = true
+
+[regulators.servo]
+manufacturer = "Pololu"
+model = "D24V150F6"
+source_url = "https://www.pololu.com/product/2882/specs"
+source_class = "manufacturer_spec"
+output_voltage_v = 6.0
+continuous_output_current_a = 15.0
+minimum_operating_voltage_v = 7.2
+max_input_voltage_v = 40.0
+mass_g = 19.0
+thermal_derating_required = true
+
+[microphones.t5848]
+manufacturer = "TDK InvenSense"
+model = "T5848"
+source_url = "https://www.invensense.tdk.com/en-us/products/microphone/t5848"
+source_class = "manufacturer_spec"
+quantity = 2
+output = "I2S 24-bit PCM"
+aop_db = 133.0
+sensitivity_dbfs = -37.0
+lf_cutoff_hz = 28.0
+aad_current_a_min = 0.000020
+
+[audio.amp]
+manufacturer = "Analog Devices"
+model = "MAX98357A"
+source_url = "https://www.analog.com/en/products/MAX98357A.html"
+source_class = "manufacturer_spec"
+supply_voltage_min_v = 2.5
+supply_voltage_max_v = 5.5
+max_output_w_into_4ohm_at_5v = 3.2
+interface = "I2S"
+
+[audio.speaker]
+manufacturer = "PUI Audio"
+model = "AS04004PO-2-WR-R"
+source_url = "https://puiaudio.com/product/speakers-and-receivers/as04004po-2-wr-r"
+source_class = "manufacturer_spec"
+impedance_ohm = 4.0
+rated_power_w = 3.0
+max_power_w = 4.0
+spl_db = 82.0
+resonant_frequency_hz = 420.0
+mass_g = 11.9
+length_mm = 40.0
+width_mm = 28.5
+height_mm = 11.7
+
+[sensors.imu]
+manufacturer = "TDK InvenSense"
+model = "ICM-42688-P"
+source_url = "https://www.invensense.tdk.com/en-us/products/6-axis/icm-42688-p"
+source_class = "manufacturer_spec"
+axes = 6
+low_noise_current_a = 0.00088
+gyro_max_dps = 2000.0
+accel_max_g = 16.0
+
+[sensors.tof]
+manufacturer = "STMicroelectronics"
+model = "VL53L8CX"
+source_url = "https://www.st.com/en/imaging-and-photonics-solutions/vl53l8cx.html"
+source_class = "manufacturer_spec"
+zones = 64
+max_range_m = 4.0
+diagonal_fov_deg = 65.0
+power_model_status = "not assigned until operating-mode current is fixed"
+
+[sensors.touch]
+manufacturer = "Microchip"
+model = "CAP1298"
+source_url = "https://www.microchip.com/en-us/product/cap1298"
+source_class = "manufacturer_spec"
+channels = 8
+proximity_detection = true
+power_model_status = "not assigned until scan configuration is fixed"
+
+[sensors.power_monitor]
+manufacturer = "Texas Instruments"
+model = "INA228"
+source_url = "https://www.ti.com/product/INA228"
+source_class = "manufacturer_spec"
+adc_bits = 20
+common_mode_min_v = -0.3
+common_mode_max_v = 85.0
+operational_current_a_typical = 0.000640
+reports = ["current", "bus_voltage", "temperature", "power", "energy", "charge"]
+
+[body_mcu]
+manufacturer = "Espressif"
+model = "ESP32-S3-WROOM-1-N16R8 target module"
+source_url = "https://www.espressif.com/en/products/socs/esp32-s3"
+source_class = "manufacturer_family_spec"
+cores = 2
+max_clock_mhz = 240
+internal_sram_kb = 512
+wireless = ["2.4GHz Wi-Fi", "Bluetooth 5 LE"]
+power_model_status = "not assigned until exact firmware radio duty cycle is measured"

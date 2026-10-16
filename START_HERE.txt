@@ -1,0 +1,68 @@
+PARROTCORE v0.5.2 - START HERE
+==============================
+
+LATEST CHECKPOINT
+-----------------
+ParrotCore remains species-agnostic: Parrot, Owl and Raven share the same semantic core.
+v0.5.2 corrects fault accounting and safety responses on top of the datasheet-grounded Parrot V1 baseline introduced in v0.5.1.
+
+WINDOWS SETUP
+-------------
+1. Run 01_SETUP_WINDOWS.bat once.
+2. Run 05_RUN_CREATURE_LAB.bat for species/behavior simulation.
+3. Run 06_RUN_DYNAMICS_LAB.bat for trajectory + telemetry + fault testing.
+4. Run 07_HARDWARE_REPORT.bat for the selected V1 hardware/evidence summary.
+
+V1 HARDWARE BASELINE
+--------------------
+5x Feetech STS3215 large smart servos
+3x Feetech ST-3036 compact smart servos
+Raspberry Pi Compute Module 5
+ESP32-S3 body controller target
+3S 11.1V 2200mAh LiPo
+6V 15A servo regulator + 5V 9A compute regulator
+Camera Module 3 Wide, T5848 microphones, MAX98357A audio,
+ICM-42688-P IMU, VL53L8CX ToF, CAP1298 touch, INA228 power monitors
+
+VALIDATION
+----------
+52/52 automated tests PASS.
+Dynamics Lab v0.5.2 safety-state HTTP smoke test PASS.
+Feetech protocol example packets PASS.
+
+GENERATED V0.5.2 OUTPUTS
+------------------------
+simulation\outputs\parrotcore_v052_safety_validation_demo.mp4
+simulation\outputs\parrotcore_v052_safety_validation_demo.gif
+simulation\outputs\parrotcore_v052_safety_validation_metrics.json
+simulation\outputs\parrotcore_v052_safety_validation_telemetry.csv
+simulation\outputs\v052_hardware_grounded_benchmark.json
+
+IMPORTANT
+---------
+13.6A is the theoretical all-servo stall current from manufacturer data.
+The 15A servo regulator has little sustained-stall margin, so 12A is the current
+simulator fault threshold and all-servo stall is prohibited as an operating mode.
+
+There are NO physical V1 measurements yet. Dynamic current, runtime, thermal
+behavior, total mass, center of gravity and torque adequacy remain models.
+
+DOCUMENTATION
+-------------
+PROJECT_STATE.md
+docs\FAULT_MODEL_CORRECTION_V052.md
+docs\VALIDATION_REPORT_V052.md
+docs\HARDWARE_BASELINE_V051.md
+docs\VALIDATION_REPORT_V051.md
+docs\POWER_MODEL_V051.md
+docs\SMART_SERVO_MIGRATION_V051.md
+hardware\SOURCE_REGISTER.md
+hardware\v1_component_baseline.toml
+hardware\v1_actuator_map.toml
+PROJECT_LEDGER.json
+
+NEXT
+----
+v0.6 perception + attention stays next in software.
+Parallel hardware gate: neck-yaw / neck-pitch / beak bench rig with smart-bus
+calibration, real current sensing, thermal checks, watchdog and physical E-stop.

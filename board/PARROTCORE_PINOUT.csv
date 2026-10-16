@@ -1,0 +1,19 @@
+logical_name,controller,reference_pin,interface,direction,notes
+sensor_i2c_sda,ESP32-S3,GPIO1,I2C,bidir,"IMU, ToF, touch, power monitors as address/bus loading permits"
+sensor_i2c_scl,ESP32-S3,GPIO2,I2C,out,sensors
+feetech_uart_tx,ESP32-S3,GPIO4,UART,out,"to direction-controlled half-duplex TTL bus interface; reference pin only"
+feetech_uart_rx,ESP32-S3,GPIO5,UART,in,"from half-duplex TTL bus interface; reference pin only"
+feetech_bus_dir,ESP32-S3,GPIO6,digital,out,"controls external tri-state/bus direction; exact buffer not selected until bench SI test"
+estop_in,ESP32-S3,GPIO12,digital,in,"fail-safe physical E-stop input required"
+servo_rail_enable,ESP32-S3,GPIO13,digital,out,"controls independent high-current servo-rail load switch/eFuse; defaults OFF"
+status_led,ESP32-S3,GPIO14,digital/PWM,out,status
+brain_uart_tx,ESP32-S3,GPIO17,UART,out,"FeatherBus to Linux brain"
+brain_uart_rx,ESP32-S3,GPIO18,UART,in,"FeatherBus from Linux brain"
+servo_id_1_neck_yaw,Feetech STS3215,TTL bus,half-duplex,bidir,"logical limits remain -60..+60 deg; raw tick calibration REQUIRED"
+servo_id_2_neck_pitch,Feetech STS3215,TTL bus,half-duplex,bidir,"logical limits remain -35..+40 deg; raw tick calibration REQUIRED"
+servo_id_3_beak,Feetech ST-3036,TTL bus,half-duplex,bidir,"logical limits remain 0..35 deg; raw tick calibration REQUIRED"
+servo_id_4_wing_left,Feetech STS3215,TTL bus,half-duplex,bidir,"logical limits remain 0..75 deg; raw tick calibration REQUIRED"
+servo_id_5_wing_right,Feetech STS3215,TTL bus,half-duplex,bidir,"logical limits remain 0..75 deg; raw tick calibration REQUIRED"
+servo_id_6_tail,Feetech ST-3036,TTL bus,half-duplex,bidir,"logical limits remain -20..+35 deg; raw tick calibration REQUIRED"
+servo_id_7_eyelids,Feetech ST-3036,TTL bus,half-duplex,bidir,"logical limits remain 0..100 logical units; physical mapping REQUIRED"
+servo_id_8_body_lean,Feetech STS3215,TTL bus,half-duplex,bidir,"logical limits remain -15..+20 deg; raw tick calibration REQUIRED"

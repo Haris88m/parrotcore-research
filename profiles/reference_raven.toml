@@ -1,0 +1,136 @@
+[body]
+name = "reference_raven_8dof"
+protocol = "featherbus-v0"
+
+[creature]
+species = "raven"
+morphology = "perching_bird_sleek"
+role = "developer_research_companion"
+capabilities = ["speech", "gaze", "blink", "beak_sync", "wing_gesture", "tail_fan", "perch"]
+
+[simulation]
+servo_voltage_v = 6.0
+servo_idle_current_a = 0.12
+servo_moving_current_a = 0.34
+servo_peak_current_a = 0.82
+compute_typical_w = 12.0
+compute_peak_w = 28.0
+model_mass_kg = 1.90
+target_height_m = 0.36
+watchdog_s = 0.75
+
+[joints.neck_yaw]
+minimum = -75.0
+maximum = 75.0
+home = 0.0
+max_speed = 190.0
+controller_id = 0
+
+[joints.neck_pitch]
+minimum = -35.0
+maximum = 45.0
+home = 0.0
+max_speed = 165.0
+controller_id = 1
+
+[joints.beak]
+minimum = 0.0
+maximum = 30.0
+home = 0.0
+max_speed = 230.0
+controller_id = 2
+
+[joints.wing_left]
+minimum = 0.0
+maximum = 65.0
+home = 0.0
+max_speed = 145.0
+controller_id = 3
+
+[joints.wing_right]
+minimum = 0.0
+maximum = 65.0
+home = 0.0
+max_speed = 145.0
+controller_id = 4
+
+[joints.tail_fan]
+minimum = 0.0
+maximum = 45.0
+home = 8.0
+max_speed = 160.0
+controller_id = 5
+
+[joints.eyelids]
+minimum = 0.0
+maximum = 100.0
+home = 0.0
+max_speed = 500.0
+controller_id = 6
+
+[joints.body_lean]
+minimum = -18.0
+maximum = 24.0
+home = 0.0
+max_speed = 120.0
+controller_id = 7
+
+[[expressions.greeting]]
+duration_s = 0.18
+positions = { neck_yaw = -12, neck_pitch = 8, tail_fan = 18 }
+[[expressions.greeting]]
+duration_s = 0.22
+positions = { neck_yaw = 16, neck_pitch = 4, wing_right = 12 }
+[[expressions.greeting]]
+duration_s = 0.22
+positions = { neck_yaw = 0, neck_pitch = 0, wing_right = 0, tail_fan = 8 }
+
+[[expressions.blink]]
+duration_s = 0.07
+positions = { eyelids = 100 }
+[[expressions.blink]]
+duration_s = 0.11
+positions = { eyelids = 0 }
+
+[[expressions.attend_left]]
+duration_s = 0.25
+positions = { neck_yaw = -52, body_lean = 3 }
+[[expressions.attend_right]]
+duration_s = 0.25
+positions = { neck_yaw = 52, body_lean = 3 }
+[[expressions.center]]
+duration_s = 0.25
+positions = { neck_yaw = 0, neck_pitch = 0, body_lean = 0 }
+
+[[expressions.curious]]
+duration_s = 0.20
+positions = { neck_yaw = -26, neck_pitch = 16, body_lean = 9, tail_fan = 20 }
+[[expressions.curious]]
+duration_s = 0.20
+positions = { neck_yaw = 14, neck_pitch = 9, body_lean = 6, tail_fan = 14 }
+
+[[expressions.affirm]]
+duration_s = 0.14
+positions = { neck_pitch = 16, tail_fan = 16 }
+[[expressions.affirm]]
+duration_s = 0.14
+positions = { neck_pitch = -5, tail_fan = 10 }
+[[expressions.affirm]]
+duration_s = 0.16
+positions = { neck_pitch = 0, tail_fan = 8 }
+
+[[expressions.dance]]
+duration_s = 0.18
+positions = { neck_yaw = -38, body_lean = -9, tail_fan = 35 }
+[[expressions.dance]]
+duration_s = 0.18
+positions = { neck_yaw = 38, body_lean = 9, tail_fan = 18 }
+[[expressions.dance]]
+duration_s = 0.20
+positions = { neck_yaw = -30, wing_left = 44, tail_fan = 40 }
+[[expressions.dance]]
+duration_s = 0.20
+positions = { neck_yaw = 30, wing_right = 44, tail_fan = 28 }
+[[expressions.dance]]
+duration_s = 0.24
+positions = { neck_yaw = 0, body_lean = 0, wing_left = 0, wing_right = 0, tail_fan = 8 }

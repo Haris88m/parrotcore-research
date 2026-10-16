@@ -1,0 +1,24 @@
+[model]
+name = "ParrotCore Reference 8-DOF Kinematic Model"
+units = "SI"
+target_height_m = 0.34
+estimated_mass_kg = 1.8
+mass_classification = "mechanical design assumption; not measured"
+
+[hardware_grounding]
+component_baseline = "hardware/v1_component_baseline.toml"
+actuator_map = "hardware/v1_actuator_map.toml"
+servo_electrical_data = "manufacturer specifications"
+compute_electrical_data = "manufacturer typical current"
+battery_data = "manufacturer specifications"
+regulator_data = "manufacturer specifications"
+
+[safety]
+watchdog_s = 0.75
+physical_estop_required = true
+mechanical_joint_stops_required = true
+servo_software_current_limit_a = 12.0
+
+[status]
+classification = "mixed hardware-grounded digital twin"
+note = "Electrical endpoint values are grounded in selected manufacturer data; dynamic load, thermal, full mass, center-of-gravity and mechanical torque adequacy remain models until bench/CAD measurements exist."

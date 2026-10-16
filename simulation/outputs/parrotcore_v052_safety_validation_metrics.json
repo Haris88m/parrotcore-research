@@ -1,0 +1,45 @@
+{
+  "classification": "manufacturer-grounded electrical endpoints plus unvalidated dynamic/thermal/mechanical model; not measured hardware performance",
+  "platform_version": "0.5.2",
+  "hardware_baseline": "parrot_v1_2026-08-16",
+  "species": "parrot",
+  "reporting_correction": "fault episodes are rising-edge events; active-frame counts measure duration and are not independent faults",
+  "nominal_validation": {
+    "frames": 195,
+    "duration_s": 9.75,
+    "fault_episode_counts": {},
+    "fault_active_frame_counts": {},
+    "pass_zero_faults": true,
+    "max_rail_current_a": 1.76581737012987,
+    "max_system_power_w": 16.34490422077922,
+    "minimum_stability_margin_m": 0.019511811991420398
+  },
+  "deliberate_fault_injection": {
+    "expected_fault_episodes": {
+      "servo_stall": 1,
+      "proximity": 1,
+      "watchdog_loss": 1
+    },
+    "fault_episode_counts": {
+      "servo_stall": 1,
+      "proximity": 1,
+      "watchdog_loss": 1
+    },
+    "fault_active_frame_counts": {
+      "servo_stall": 16,
+      "proximity": 24,
+      "watchdog_loss": 7
+    },
+    "distinct_expected_episodes": 3,
+    "pass_episode_accounting": true
+  },
+  "safety_response_checks": {
+    "stall_episode_detected": true,
+    "proximity_inhibits_motion": true,
+    "proximity_does_not_latch_power_off": true,
+    "watchdog_inhibits_motion": true,
+    "watchdog_disables_actuator_power": true,
+    "watchdog_latch_persists_after_condition_clears": true
+  },
+  "overall_pass": true
+}

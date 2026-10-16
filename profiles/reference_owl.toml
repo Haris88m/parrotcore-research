@@ -1,0 +1,139 @@
+[body]
+name = "reference_owl_8dof"
+protocol = "featherbus-v0"
+
+[creature]
+species = "owl"
+morphology = "perching_bird_large_head"
+role = "teaching_companion"
+capabilities = ["speech", "gaze", "blink", "beak_sync", "wing_gesture", "head_tilt", "perch"]
+
+[simulation]
+servo_voltage_v = 6.0
+servo_idle_current_a = 0.11
+servo_moving_current_a = 0.32
+servo_peak_current_a = 0.75
+compute_typical_w = 10.0
+compute_peak_w = 25.0
+model_mass_kg = 1.65
+target_height_m = 0.31
+watchdog_s = 0.75
+
+[joints.head_yaw]
+minimum = -110.0
+maximum = 110.0
+home = 0.0
+max_speed = 170.0
+controller_id = 0
+
+[joints.head_pitch]
+minimum = -30.0
+maximum = 45.0
+home = 0.0
+max_speed = 150.0
+controller_id = 1
+
+[joints.beak]
+minimum = 0.0
+maximum = 25.0
+home = 0.0
+max_speed = 220.0
+controller_id = 2
+
+[joints.wing_left]
+minimum = 0.0
+maximum = 55.0
+home = 0.0
+max_speed = 125.0
+controller_id = 3
+
+[joints.wing_right]
+minimum = 0.0
+maximum = 55.0
+home = 0.0
+max_speed = 125.0
+controller_id = 4
+
+[joints.tail_pitch]
+minimum = -10.0
+maximum = 25.0
+home = 0.0
+max_speed = 140.0
+controller_id = 5
+
+[joints.eyelids]
+minimum = 0.0
+maximum = 100.0
+home = 0.0
+max_speed = 500.0
+controller_id = 6
+
+[joints.body_lean]
+minimum = -12.0
+maximum = 18.0
+home = 0.0
+max_speed = 100.0
+controller_id = 7
+
+[[expressions.greeting]]
+duration_s = 0.22
+positions = { head_pitch = 10, eyelids = 12 }
+[[expressions.greeting]]
+duration_s = 0.26
+positions = { head_yaw = -22, head_pitch = 5, wing_left = 12 }
+[[expressions.greeting]]
+duration_s = 0.26
+positions = { head_yaw = 22, head_pitch = 5, wing_right = 12 }
+[[expressions.greeting]]
+duration_s = 0.28
+positions = { head_yaw = 0, head_pitch = 0, wing_left = 0, wing_right = 0, eyelids = 0 }
+
+[[expressions.blink]]
+duration_s = 0.10
+positions = { eyelids = 100 }
+[[expressions.blink]]
+duration_s = 0.15
+positions = { eyelids = 0 }
+
+[[expressions.attend_left]]
+duration_s = 0.34
+positions = { head_yaw = -72, head_pitch = 4 }
+[[expressions.attend_right]]
+duration_s = 0.34
+positions = { head_yaw = 72, head_pitch = 4 }
+[[expressions.center]]
+duration_s = 0.30
+positions = { head_yaw = 0, head_pitch = 0 }
+
+[[expressions.curious]]
+duration_s = 0.28
+positions = { head_yaw = -18, head_pitch = 22, body_lean = 5 }
+[[expressions.curious]]
+duration_s = 0.28
+positions = { head_yaw = 20, head_pitch = 14, body_lean = 2 }
+
+[[expressions.affirm]]
+duration_s = 0.18
+positions = { head_pitch = 18 }
+[[expressions.affirm]]
+duration_s = 0.18
+positions = { head_pitch = -3 }
+[[expressions.affirm]]
+duration_s = 0.18
+positions = { head_pitch = 0 }
+
+[[expressions.dance]]
+duration_s = 0.24
+positions = { head_yaw = -35, body_lean = -5, wing_left = 24 }
+[[expressions.dance]]
+duration_s = 0.24
+positions = { head_yaw = 35, body_lean = 5, wing_right = 24 }
+[[expressions.dance]]
+duration_s = 0.24
+positions = { head_yaw = -20, head_pitch = 15, wing_left = 34, wing_right = 8 }
+[[expressions.dance]]
+duration_s = 0.24
+positions = { head_yaw = 20, head_pitch = 8, wing_left = 8, wing_right = 34 }
+[[expressions.dance]]
+duration_s = 0.28
+positions = { head_yaw = 0, head_pitch = 0, body_lean = 0, wing_left = 0, wing_right = 0 }

@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "parrotcore"
+version = "0.5.2"
+description = "Species-agnostic embodied-AI runtime and hardware contract for expressive robotic creatures"
+readme = "README.md"
+requires-python = ">=3.11"
+license = {text = "MIT"}
+authors = [{name = "ParrotCore Project"}]
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=8"]
+
+[project.scripts]
+parrotcore = "parrotcore.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+parrotcore = ["resources/profiles/*.toml", "resources/hardware/*.toml"]

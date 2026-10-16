@@ -1,0 +1,107 @@
+{
+  "platform_version": "0.5.1",
+  "baseline_id": "parrot_v1_2026-08-16",
+  "classification": "hardware-grounded endpoints + explicit unvalidated dynamic/thermal/mechanical model",
+  "source_truth": {
+    "manufacturer_spec": [
+      "servo voltage/no-load speed/no-load running current/stall current/rated torque/stall torque/mass",
+      "CM5 typical operation current",
+      "battery voltage/capacity/C-rating/mass",
+      "regulator output voltage/current ratings"
+    ],
+    "derived_from_manufacturer_spec": [
+      "servo aggregate mass/current",
+      "CM5 module operation power",
+      "battery nominal Wh and theoretical C-rate current"
+    ],
+    "engineering_model_not_measured": [
+      "dynamic servo load fraction",
+      "camera power budget",
+      "regulator efficiency",
+      "usable battery fraction",
+      "thermal response",
+      "runtime estimate",
+      "mechanical torque adequacy",
+      "full robot mass and center of gravity"
+    ]
+  },
+  "selected_actuation": {
+    "sts3215_quantity": 5,
+    "st3036_quantity": 3,
+    "aggregate_servo_mass_g": 328.1,
+    "aggregate_no_load_running_current_a": 1.14,
+    "aggregate_theoretical_all_stall_current_a": 13.6,
+    "servo_software_current_limit_a": 12.0,
+    "servo_regulator_nominal_current_a": 15.0
+  },
+  "joint_speed_margin": {
+    "neck_yaw": {
+      "profile_max_speed_deg_s": 180.0,
+      "servo_no_load_speed_deg_s_at_6v": 252.10084033613447,
+      "profile_fraction_of_no_load_speed": 0.714
+    },
+    "neck_pitch": {
+      "profile_max_speed_deg_s": 160.0,
+      "servo_no_load_speed_deg_s_at_6v": 252.10084033613447,
+      "profile_fraction_of_no_load_speed": 0.6346666666666666
+    },
+    "beak": {
+      "profile_max_speed_deg_s": 220.0,
+      "servo_no_load_speed_deg_s_at_6v": 666.6666666666667,
+      "profile_fraction_of_no_load_speed": 0.32999999999999996
+    },
+    "wing_left": {
+      "profile_max_speed_deg_s": 140.0,
+      "servo_no_load_speed_deg_s_at_6v": 252.10084033613447,
+      "profile_fraction_of_no_load_speed": 0.5553333333333333
+    },
+    "wing_right": {
+      "profile_max_speed_deg_s": 140.0,
+      "servo_no_load_speed_deg_s_at_6v": 252.10084033613447,
+      "profile_fraction_of_no_load_speed": 0.5553333333333333
+    },
+    "tail_pitch": {
+      "profile_max_speed_deg_s": 160.0,
+      "servo_no_load_speed_deg_s_at_6v": 666.6666666666667,
+      "profile_fraction_of_no_load_speed": 0.23999999999999996
+    },
+    "eyelids": {
+      "profile_max_speed_deg_s": 500.0,
+      "servo_no_load_speed_deg_s_at_6v": 666.6666666666667,
+      "profile_fraction_of_no_load_speed": 0.7499999999999999
+    },
+    "body_lean": {
+      "profile_max_speed_deg_s": 110.0,
+      "servo_no_load_speed_deg_s_at_6v": 252.10084033613447,
+      "profile_fraction_of_no_load_speed": 0.4363333333333333
+    }
+  },
+  "power_baseline": {
+    "cm5_module_operation_power_w": 4.5,
+    "camera_design_budget_w": 1.25,
+    "electronics_baseline_power_w": 5.75,
+    "theoretical_all_servo_stall_dc_load_w": 87.35,
+    "battery_nominal_energy_wh": 24.42
+  },
+  "explicit_fault_envelope": {
+    "all_servo_stall_max_current_a": 13.6,
+    "faults": [
+      "overcurrent",
+      "servo_stall"
+    ],
+    "is_valid_operating_point": false,
+    "reason": "theoretical all-stall current exceeds the 12A software limit and leaves insufficient thermal margin against the 15A-class regulator"
+  },
+  "reference_behavior_simulation": {
+    "frames": 505,
+    "duration_s": 10.1,
+    "avg_servo_rail_current_a": 1.3222929477697032,
+    "max_servo_rail_current_a": 1.7800404921782762,
+    "avg_dc_load_power_w": 13.68375768661822,
+    "max_dc_load_power_w": 16.43024295306966,
+    "ideal_runtime_h_from_avg_dc_load": 1.7845975176746292,
+    "derated_runtime_h_from_avg_dc_load": 1.284910212725733,
+    "runtime_warning": "not a battery-life claim; excludes unresolved audio/MCU/sensor duty cycles and uses modeled servo load plus assumed regulator efficiency/usable battery fraction",
+    "fault_frame_counts": {}
+  }
+}

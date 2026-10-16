@@ -1,0 +1,146 @@
+{
+  "project": "ParrotCore",
+  "parent_project": "Project AI robots",
+  "checkpoint": "0.5.2",
+  "checkpoint_date": "2026-08-16",
+  "status": "species-agnostic embodied-AI runtime plus datasheet-grounded Parrot V1 baseline with corrected fault-episode accounting and safety-latch semantics; pre-physical-measurement",
+  "canonical_reference_body": "parrot",
+  "reference_creatures": {
+    "parrot": "talking/family companion; V1 hardware baseline selected",
+    "owl": "teaching/learning companion; conceptual hardware",
+    "raven": "developer/research companion; conceptual hardware"
+  },
+  "evidence_classes": [
+    "manufacturer_spec",
+    "derived_from_manufacturer_spec",
+    "engineering_model",
+    "measured"
+  ],
+  "measured_v1_hardware_values": [],
+  "v1_selected_components": {
+    "compute": "Raspberry Pi Compute Module 5 wireless target, 8GB/32GB class",
+    "body_mcu": "ESP32-S3-WROOM-1-N16R8 target",
+    "large_servos": "5x Feetech ST-3215-C001 / STS3215",
+    "compact_servos": "3x Feetech ST-3036-C001",
+    "battery": "Gens ace G-Tech 2200mAh 3S 11.1V 25C LiPo",
+    "servo_regulator": "Pololu D24V150F6 6V 15A",
+    "compute_regulator": "Pololu D24V90F5 5V 9A",
+    "camera": "Raspberry Pi Camera Module 3 Wide",
+    "microphones": "2x TDK InvenSense T5848",
+    "audio_amp": "Analog Devices MAX98357A",
+    "speaker": "PUI Audio AS04004PO-2-WR-R",
+    "imu": "TDK InvenSense ICM-42688-P",
+    "tof": "ST VL53L8CX",
+    "touch": "Microchip CAP1298",
+    "power_monitoring": "2x Texas Instruments INA228"
+  },
+  "manufacturer_grounded_or_directly_derived": {
+    "aggregate_servo_mass_g": 328.1,
+    "aggregate_servo_no_load_running_current_a_at_6v": 1.14,
+    "aggregate_servo_theoretical_all_stall_current_a_at_6v": 13.6,
+    "aggregate_servo_theoretical_all_stall_power_w": 81.6,
+    "cm5_typical_operation_current_a_at_5v": 0.9,
+    "cm5_typical_operation_power_w": 4.5,
+    "battery_nominal_energy_wh": 24.42,
+    "battery_theoretical_c_rate_current_a": 55.0,
+    "servo_regulator_nominal_current_a": 15.0,
+    "compute_regulator_nominal_current_a": 9.0
+  },
+  "engineering_model_settings": {
+    "nominal_dynamic_servo_load_fraction": 0.18,
+    "regulator_efficiency_assumption": 0.9,
+    "usable_battery_fraction_assumption": 0.8,
+    "camera_power_budget_w": 1.25,
+    "servo_software_current_limit_a": 12.0,
+    "thermal_response": "unvalidated model",
+    "full_robot_mass_kg": 1.8,
+    "target_height_m": 0.34
+  },
+  "verified_software_facts": [
+    "Parrot, Owl and Raven load through one CreatureRegistry",
+    "Semantic intents compile to creature-specific joint frames",
+    "TrajectoryPlanner enforces configured speed/acceleration/jerk envelopes",
+    "Telemetry and fault injection remain available",
+    "Parrot DynamicsSimulator accepts the V1 HardwareBaseline",
+    "Per-joint Parrot current endpoints come from selected servo models",
+    "All-servo simulated stall reaches 13.6A and crosses the 12A software current threshold",
+    "Feetech PING/READ/goal-position packets match official protocol examples",
+    "Raw logical-degree-to-servo-tick mapping remains calibration-gated",
+    "Dynamics Lab HTTP smoke test passes with hardware-grounded Parrot mode",
+    "52 of 52 automated Python tests pass from repository root",
+    "Nominal hardware-grounded reference behavior reports zero fault episodes",
+    "Fault reporting distinguishes rising-edge episodes from active-frame duration",
+    "Watchdog loss inhibits motion and latches simulated actuator power off until explicit reset",
+    "Corrected safety-validation demo contains exactly three deliberately injected fault episodes and passes all safety-response checks"
+  ],
+  "decisions": [
+    "Parrot remains Robot #1/reference implementation",
+    "The core platform remains species-agnostic",
+    "Parrot V1 uses smart serial Feetech servos instead of raw PWM servos",
+    "Parrot V1 power source is 3S with separate 6V servo and 5V compute rails",
+    "Sustained all-servo stall is a fault condition, not a design operating point",
+    "Every hardware parameter must retain an evidence classification",
+    "Physical motion is blocked until raw actuator zero/direction/limit calibration exists",
+    "Physical development begins with a three-actuator neck-yaw/neck-pitch/beak bench rig",
+    "Fault dashboards and reports must never present active telemetry-frame duration as an independent fault count",
+    "Nominal validation and deliberate fault-injection validation must be reported separately"
+  ],
+  "physical_validation_required": [
+    "actual joint load and torque margin",
+    "per-joint raw servo center/direction/end-stop calibration",
+    "actual movement/stall transient current",
+    "smart-bus signal integrity and direction buffer",
+    "servo rail eFuse/load switch and independent E-stop",
+    "regulator temperature at duty cycle",
+    "battery sag, thermal behavior and runtime",
+    "CM5 enclosure thermal solution",
+    "full mass and center of gravity",
+    "true collision geometry and perch stability",
+    "actuator backlash, acoustic noise and lifetime",
+    "sensor accuracy/enclosure effects",
+    "microphone/speaker acoustic feedback",
+    "ESP32 target firmware compile/flash",
+    "product safety and compliance"
+  ],
+  "next_milestone": {
+    "version": "0.6.0",
+    "name": "Perception and attention interfaces",
+    "software_work": [
+      "camera abstraction",
+      "synthetic/replayable vision source",
+      "person/object events",
+      "attention target state",
+      "gaze controller emitting semantic attention requests",
+      "audio VAD/wake-word adapter interface",
+      "local STT boundary",
+      "touch events",
+      "deterministic perception replay tests"
+    ],
+    "parallel_physical_gate": "three-actuator calibration/power/smart-bus bench prototype before full-body actuation"
+  },
+  "v052_reference_behavior_model": {
+    "avg_servo_rail_current_a": 1.3222929477697032,
+    "max_servo_rail_current_a": 1.7800404921782762,
+    "avg_dc_load_power_w": 13.68375768661822,
+    "max_dc_load_power_w": 16.43024295306966,
+    "ideal_runtime_h": 1.7845975176746292,
+    "derated_runtime_h": 1.284910212725733,
+    "runtime_is_product_claim": false,
+    "normal_fault_episode_counts": {},
+    "normal_fault_active_frame_counts": {}
+  },
+  "v052_fault_model_correction": {
+    "historical_reporting_defect": "v0.5.1 demo counted active fault frames and could be misread as independent fault events",
+    "fault_episode_semantics": "rising edge from inactive to active",
+    "deliberate_safety_demo_distinct_episodes": 3,
+    "deliberate_episode_counts": {
+      "servo_stall": 1,
+      "proximity": 1,
+      "watchdog_loss": 1
+    },
+    "watchdog_response": "motion inhibited; actuator power off; safety latched until reset",
+    "proximity_response": "motion inhibited; actuator rail remains available; no latch",
+    "overcurrent_response": "detected current transient retained; actuator rail latched off for subsequent samples",
+    "overtemp_response": "motion inhibited; actuator power off; safety latched"
+  }
+}

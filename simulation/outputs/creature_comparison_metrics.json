@@ -1,0 +1,164 @@
+{
+  "classification": "conceptual multi-embodiment kinematic simulation; not measured hardware performance",
+  "platform_version": "0.4.0",
+  "fps": 20,
+  "duration_s": 6.6,
+  "frames": 132,
+  "semantic_sequence": [
+    "greeting",
+    "attend_left",
+    "attend_right",
+    "center",
+    "blink",
+    "curious",
+    "affirm",
+    "dance",
+    "home"
+  ],
+  "creatures": {
+    "parrot": {
+      "effectiveness": {
+        "species": "parrot",
+        "role": "talking_companion",
+        "degrees_of_freedom": 8,
+        "total_joint_travel": 470.0,
+        "expression_count": 8,
+        "capability_count": 7,
+        "yaw_span_deg": 120.0,
+        "pitch_span_deg": 75.0,
+        "wing_command_span_deg": 150.0,
+        "beak_span_deg": 35.0,
+        "tail_expression_span_deg": 55.0,
+        "servo_idle_w": 5.76,
+        "servo_all_moving_w": 16.799999999999997,
+        "servo_peak_w": 38.400000000000006,
+        "system_typical_motion_w": 26.799999999999997,
+        "system_peak_w": 63.400000000000006,
+        "estimated_mass_kg": 1.8,
+        "target_height_m": 0.34,
+        "watchdog_cutoff_s": 0.75
+      },
+      "max_simulated_tip_speed_m_s": {
+        "beak_tip": 0.7434512119412171,
+        "wing_l_tip": 0.6481419787316243,
+        "wing_r_tip": 0.6972223592388895,
+        "head_center": 0.24433970256478527
+      },
+      "capabilities": [
+        "beak_sync",
+        "blink",
+        "gaze",
+        "perch",
+        "speech",
+        "tail_gesture",
+        "wing_gesture"
+      ],
+      "expressions": [
+        "affirm",
+        "attend_left",
+        "attend_right",
+        "blink",
+        "center",
+        "curious",
+        "dance",
+        "greeting"
+      ]
+    },
+    "owl": {
+      "effectiveness": {
+        "species": "owl",
+        "role": "teaching_companion",
+        "degrees_of_freedom": 8,
+        "total_joint_travel": 495.0,
+        "expression_count": 8,
+        "capability_count": 7,
+        "yaw_span_deg": 220.0,
+        "pitch_span_deg": 75.0,
+        "wing_command_span_deg": 110.0,
+        "beak_span_deg": 25.0,
+        "tail_expression_span_deg": 35.0,
+        "servo_idle_w": 5.28,
+        "servo_all_moving_w": 15.36,
+        "servo_peak_w": 36.0,
+        "system_typical_motion_w": 25.36,
+        "system_peak_w": 61.0,
+        "estimated_mass_kg": 1.65,
+        "target_height_m": 0.31,
+        "watchdog_cutoff_s": 0.75
+      },
+      "max_simulated_tip_speed_m_s": {
+        "beak_tip": 0.7676504635316135,
+        "wing_l_tip": 0.23308036182308106,
+        "wing_r_tip": 0.26519108302797045,
+        "head_center": 0.13884459103833213
+      },
+      "capabilities": [
+        "beak_sync",
+        "blink",
+        "gaze",
+        "head_tilt",
+        "perch",
+        "speech",
+        "wing_gesture"
+      ],
+      "expressions": [
+        "affirm",
+        "attend_left",
+        "attend_right",
+        "blink",
+        "center",
+        "curious",
+        "dance",
+        "greeting"
+      ]
+    },
+    "raven": {
+      "effectiveness": {
+        "species": "raven",
+        "role": "developer_research_companion",
+        "degrees_of_freedom": 8,
+        "total_joint_travel": 477.0,
+        "expression_count": 8,
+        "capability_count": 7,
+        "yaw_span_deg": 150.0,
+        "pitch_span_deg": 80.0,
+        "wing_command_span_deg": 130.0,
+        "beak_span_deg": 30.0,
+        "tail_expression_span_deg": 45.0,
+        "servo_idle_w": 5.76,
+        "servo_all_moving_w": 16.32,
+        "servo_peak_w": 39.36,
+        "system_typical_motion_w": 28.32,
+        "system_peak_w": 67.36,
+        "estimated_mass_kg": 1.9,
+        "target_height_m": 0.36,
+        "watchdog_cutoff_s": 0.75
+      },
+      "max_simulated_tip_speed_m_s": {
+        "beak_tip": 1.1784714679290034,
+        "wing_l_tip": 0.6015925354979081,
+        "wing_r_tip": 0.6015925354979081,
+        "head_center": 0.3157712933323415
+      },
+      "capabilities": [
+        "beak_sync",
+        "blink",
+        "gaze",
+        "perch",
+        "speech",
+        "tail_fan",
+        "wing_gesture"
+      ],
+      "expressions": [
+        "affirm",
+        "attend_left",
+        "attend_right",
+        "blink",
+        "center",
+        "curious",
+        "dance",
+        "greeting"
+      ]
+    }
+  }
+}

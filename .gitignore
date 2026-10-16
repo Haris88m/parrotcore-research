@@ -1,0 +1,17 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.venv/
+venv/
+build/
+dist/
+*.sqlite3
+*.db
+
+# Generated simulation media belongs in GitHub Actions artifacts.
+simulation/outputs/*.mp4
+simulation/outputs/*.gif
+simulation/outputs/*.png
+simulation/outputs/*.glb
+simulation/outputs/*.stl
